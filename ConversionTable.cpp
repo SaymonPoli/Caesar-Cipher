@@ -22,7 +22,8 @@ Conversion::Conversion(size_t key) : m_table(256)
 
 char Conversion::EncryptChar(char &decrypted)
 {
-    return m_table.at(decrypted).second;
+    char c = decrypted;
+    return m_table.at(c).second;
 }
 
 char Conversion::DecryptChar(char &encripted)

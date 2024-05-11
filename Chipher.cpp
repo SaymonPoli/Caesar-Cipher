@@ -1,27 +1,35 @@
 #include "Chipher.hpp"
-#include "conversionTable.hpp"
-std::string Chipher::encryptText(std::string decryptText)
+#include "ConversionTable.hpp"
+std::string Chipher::encryptText(std::string &plainText, std::string &encryptedText)
 {
-    std::cout << "\nEncrypting..." << "\n";
-    std::string encryptText;
-    for (char &s : decryptText)
+    encryptedText = "\n";
+    for (int i = 0; i < plainText.size(); i++)
     {
-        encryptText += m_conversion.EncryptChar(s);
+        char c = plainText[i];
+        for (int j = 0; j < m_conversion->m_table.size(); j++)
+        {
+            if (m_conversion->m_table[j].first == c)
+            {
+                encryptedText += m_conversion->m_table[j].second;
+                break;
+            }
+        }
     }
-    m_encryptedText = encryptText;
-    return encryptText;
+    return encryptedText;
 }
 
 std::string Chipher::decryptText(std::string &encryptText, std::string &decryptedMessage)
 {
+    decryptedMessage = "\n";
     for (int i = 0; i < encryptText.size(); i++)
     {
         char c = encryptText[i];
-        for (int j = 0; j < m_conversion.m_table.size(); j++)
+        for (int j = 0; j < m_conversion->m_table.size(); j++)
         {
-            if (m_conversion.m_table[j].second == c)
+            if (m_conversion->m_table[j].second == c)
             {
-                decryptedMessage += m_conversion.m_table[j].first;
+                decryptedMessage += m_conversion->m_table[j].first;
+                break;
             }
         }
     }
@@ -30,6 +38,7 @@ std::string Chipher::decryptText(std::string &encryptText, std::string &decrypte
 
 int Chipher::setKey(int key)
 {
-    m_Conversion.EditKey(key);
+    delete m_conversion;
+    m_conversion = new Conversion(key);
     return 1;
 }

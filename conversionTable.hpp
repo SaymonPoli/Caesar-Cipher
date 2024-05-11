@@ -6,7 +6,7 @@ class Conversion
 {
 private:
 public:
-    std::vector<std::pair<unsigned char, unsigned char>> m_table;
+    std::vector<std::pair<char, char>> m_table;
     Conversion();
     Conversion(size_t key);
     char EncryptChar(char &character);
