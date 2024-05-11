@@ -24,11 +24,11 @@ int main()
         // cin >> choice;
         // cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        decrypted = "saymon apenas";
+        decrypted = "Hello World";
         cout << "Original text: " << decrypted << endl;
         encrypted = chipher.encryptText(decrypted);
         cout << "Encrypted text: " << encrypted << endl;
-        decrypted = chipher.decryptText(encrypted);
+        chipher.decryptText(encrypted, decrypted);
         cout << "Decrypted text: " << decrypted << endl;
 
         // switch (choice)

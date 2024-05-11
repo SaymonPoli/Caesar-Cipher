@@ -5,14 +5,13 @@
 class Conversion
 {
 private:
-    std::vector<std::pair<unsigned char, unsigned char>> m_table;
-
 public:
+    std::vector<std::pair<unsigned char, unsigned char>> m_table;
     Conversion();
     Conversion(size_t key);
-    int EditKey(size_t key);
     char EncryptChar(char &character);
     char DecryptChar(char &character);
+    ~Conversion(){};
 };
 
 #endif
