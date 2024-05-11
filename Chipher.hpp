@@ -4,7 +4,7 @@
 #include "conversionTable.hpp"
 class Chipher {
     private:
-    Conversion *m_conversion;
+    Conversion m_conversion;
     int m_key;
 
     public:

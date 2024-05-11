@@ -26,7 +26,7 @@ int main()
 
         decrypted = "Hello World";
         cout << "Original text: " << decrypted << endl;
-        encrypted = chipher.encryptText(decrypted);
+        chipher.encryptText(decrypted);
         cout << "Encrypted text: " << encrypted << endl;
         chipher.decryptText(encrypted, decrypted);
         cout << "Decrypted text: " << decrypted << endl;
